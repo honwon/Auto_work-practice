@@ -4,3 +4,5 @@ class Excel:
 
     def save_to_excel(self,data):
         print("save ("+ str(len(data)) +") data "+ self.excel_file)
+
+print(__name__)

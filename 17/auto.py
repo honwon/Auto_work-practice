@@ -1,9 +1,9 @@
 from my_email import Email
-from my_news import News
+from testlib.my_news import News
 from my_excel import Excel
 
 m_email = Email()
-m_news = News()
+m_news= News()
 m_excel = Excel()
 
 news_list = m_news.find_news('fastcampus')

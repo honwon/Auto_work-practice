@@ -9,3 +9,4 @@ class News:
         print("Collected")
         return self.news
 
+print(__name__)

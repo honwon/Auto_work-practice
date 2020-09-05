@@ -11,3 +11,8 @@ class Email:
         print("Subject: " + self.subject)
         print("Contents: " + self.contents)
         
+
+if __name__ == "__main__":
+    e = Email()
+    e.from_email="테스트"
+    e.send_mail()
