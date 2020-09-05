@@ -1,6 +1,6 @@
 class simpleTest:
 
-    def ddd():
+    def ddd(self):
         print("testttt")
 
     def print_skip(self, string):
