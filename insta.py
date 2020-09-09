@@ -50,7 +50,7 @@ try:
     # elem.send_keys(Keys.RETURN)
 
     elem = driver.find_element_by_class_name("XTCLo")
-    elem.send_keys("#패스트캠퍼스")
+    elem.send_keys("#고구마")
 
     sleep(2)
     # 동작을 체인처럼 연결함 ac.은 등록하는 과정
@@ -58,7 +58,7 @@ try:
     # 마우스가 그 위치로 이동
     ac.move_to_element(elem)
     # 키를 누름
-    ac.click()
+   
     # 앞에서 등록한 모든 동작을 실행한다.
     # ac.perform()
     # 앞에서 취했던 동작 모두 초기화
@@ -67,6 +67,40 @@ try:
     ac.move_by_offset(0,50)
     ac.click()
     ac.perform()
+
+    sleep(3)
+
+    elem = driver.find_element_by_class_name("EZdmt")
+
+    posts = elem.find_elements_by_class_name("v1Nh3")
+
+    # 새로운 페이지기 때문에 다시 사용해주어야 한다
+    ac = ActionChains(driver)
+
+    for post in posts:
+        # 동작 리셋
+        ac.reset_actions()
+        ac.move_to_element(post)
+        ac.click()
+        ac.perform()
+        
+        sleep(2)
+
+        ac.reset_actions()
+        elem = driver.find_element_by_class_name("fr66n")
+        ac.move_to_element(elem)
+        ac.click()
+        ac.perform()
+        
+        ac.reset_actions()
+        ac.send_keys(Keys.ESCAPE)
+        ac.perform()
+        sleep(1)
+
+      
+        
+        
+        
 
 
 except Exception as e:
