@@ -10,12 +10,6 @@ driver = webdriver.Chrome("./chromedriver")
 try:
     driver.get("https://www.instagram.com")
 
-    # 링크 텍스트가 로그인인것을 받아옴
-    # elem = driver.find_element_by_link_text("로그인")
-    # 클릭
-    # elem.click()
-    
-    # 잠시 1초 동안 기다려라
     sleep(1)
     
     # name 값으로 찾음
@@ -32,24 +26,19 @@ try:
 
     # 1번쨰 알림창 나중에 하기 선택
     sleep(3)
-    elem = driver.find_element_by_class_name('sqdOP')
+    elem = driver.find_element_by_xpath('//*[@id="react-root"]/section/main/div/div/div/div/button')
     elem.click()
 
     # 2번쨰 알림창 나중에 하기 선택
     sleep(3)
     # elem = driver.find_element_by_css_selector('button.aOOlW.HoLwm')
-    elem = driver.find_element_by_class_name("HoLwm")
+    elem = driver.find_element_by_xpath("/html/body/div[4]/div/div/div/div[3]/button[2]")
     elem.click()
 
     sleep(2)
 
-    # input에 넣는 방법
-    # elem = driver.find_element_by_class_name("XTCLo")
-    # elem.send_keys("#travel")
-    # elem.send_keys(Keys.RETURN)
-    # elem.send_keys(Keys.RETURN)
-
-    elem = driver.find_element_by_class_name("XTCLo")
+    # [text()="찾을 값"] , @는 안의 속성값
+    elem = driver.find_element_by_xpath('//input[@placeholder="검색"]')
     elem.send_keys("#고구마")
 
     sleep(2)
@@ -70,9 +59,8 @@ try:
 
     sleep(3)
 
-    elem = driver.find_element_by_class_name("EZdmt")
-
-    posts = elem.find_elements_by_class_name("v1Nh3")
+    # contains는 텍스트를 포함하는 것
+    posts = driver.find_elements_by_xpath('//*[text()="인기 게시물"]/../..//a[contains(@href, "/p/")]/..')
 
     # 새로운 페이지기 때문에 다시 사용해주어야 한다
     ac = ActionChains(driver)
@@ -91,21 +79,17 @@ try:
         ac.move_to_element(elem)
         ac.click()
         ac.perform()
-        
+
+        sleep(1)
+
         ac.reset_actions()
         ac.send_keys(Keys.ESCAPE)
         ac.perform()
         sleep(1)
 
-      
-        
-        
-        
-
-
 except Exception as e:
     print(e)
+
 finally:
     print("\n종료")
     # driver.quit()
-
