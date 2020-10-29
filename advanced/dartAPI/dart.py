@@ -23,11 +23,16 @@ data = res.json()
 print(data)
 # 만약 에러가 나면
 if data['status'] != '000':
+    bot.sendMessage(id,'공시정보 조회 실패'+data['message'])
     #에러 메세지 출력
-    print(data['message'])
 else:
+    msg=''
     # list 값을 추출
     data_list = data['list']
     for d in data_list:
         # 회사명만 추출
-        print(d['corp_name'])
+        if not msg=='':
+            msg += '\n'
+        for k, v in d.items():
+            msg += '%s, ' % v
+    bot.sendMessage(id,'공시정보 조회 성공\n'+msg)
