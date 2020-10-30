@@ -1,7 +1,7 @@
 import requests
+import telepot
 
-AUTH_KEY = '11e175b135f5537063d8eaafb8b1dd243e01b238'
-
+bot =1
 args = {
     'bgn_de': '20191001',
     'end_de': '20191231',
